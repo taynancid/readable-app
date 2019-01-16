@@ -9,18 +9,22 @@ const headers = {
   Authorization: token
 };
 
+/* Category Related Call */
+
 export const getAllCat = () =>
   fetch(`${api}/categories`, { headers })
     .then(res => res.json())
     .then(data => data.categories);
+
+/* Post Related Calls */
 
 export const getAllPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
     .then(data => data);
 
-export const getPost = postID =>
-  fetch(`${api}/posts/${postID}`, { headers })
+export const getPost = postId =>
+  fetch(`${api}/posts/${postId}`, { headers })
     .then(res => res.json())
     .then(data => data);
 
@@ -41,6 +45,17 @@ export const addPost = post =>
     .then(res => res.json())
     .then(data => data);
 
+export const deletePost = postID =>
+  fetch(`${api}/posts/${postID}`, {
+    method: "DELETE",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(data => data);
+
 export const votePost = (id, type) =>
   fetch(`${api}/posts/${id}`, {
     method: "POST",
@@ -48,8 +63,73 @@ export const votePost = (id, type) =>
       ...headers,
       "Content-Type": "application/json"
     },
-    body: {
-      option: "upVote"
+    body: JSON.stringify({ option: type })
+  })
+    .then(res => res.json())
+    .then(data => data);
+
+export const editPost = post =>
+  fetch(`${api}/posts/${post.id}`, {
+    method: "PUT",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ ...post })
+  }).then(res => res.json());
+
+/* Comment Related Calls */
+
+export const getCommentsByPost = postID =>
+  fetch(`${api}/posts/${postID}/comments`, { headers })
+    .then(res => res.json())
+    .then(data => data);
+
+export const addComment = comment =>
+  fetch(`${api}/comments`, {
+    method: "POST",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ ...comment })
+  })
+    .then(res => res.json())
+    .then(data => data);
+
+export const getComment = commentId =>
+  fetch(`${api}/comments/${commentId}`, { headers })
+    .then(res => res.json())
+    .then(data => data);
+
+export const voteComment = (id, type) =>
+  fetch(`${api}/comments/${id}`, {
+    method: "POST",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ option: type })
+  })
+    .then(res => res.json())
+    .then(data => data);
+
+export const updateComment = comment =>
+  fetch(`${api}/comments/${comment.id}`, {
+    method: "PUT",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ ...comment })
+  }).then(res => res.json());
+
+export const deleteComment = commentId =>
+  fetch(`${api}/comments/${commentId}`, {
+    method: "DELETE",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json"
     }
   })
     .then(res => res.json())
