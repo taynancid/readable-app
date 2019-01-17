@@ -2,8 +2,9 @@
 
 # dependencies
 /api-server/node_modules
-/frontend/node_modules
 /api-server/package-lock.json
+/frontend/node_modules
+/frontend/package-lock.json
 
 # testing
 /frontend/coverage
@@ -22,3 +23,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+commit_msg
