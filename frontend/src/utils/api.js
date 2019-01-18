@@ -1,3 +1,4 @@
+import { normalizeById } from "./helpers";
 const api = "http://localhost:3001";
 
 let token = Math.random()
@@ -21,7 +22,9 @@ export const getAllCat = () =>
 export const getAllPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(posts => Object.assign({}, posts));
+    .then(posts => {
+      return normalizeById(posts);
+    });
 
 export const getPost = postId =>
   fetch(`${api}/posts/${postId}`, { headers })
