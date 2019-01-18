@@ -21,7 +21,7 @@ export const getAllCat = () =>
 export const getAllPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data);
+    .then(posts => Object.assign({}, posts));
 
 export const getPost = postId =>
   fetch(`${api}/posts/${postId}`, { headers })
