@@ -4,6 +4,7 @@ import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import { handleAddPost, handleUpdatePost } from "../actions/posts";
 import NavBar from "./NavBar";
+import DashBoard from "./DashBoard";
 
 class App extends Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <NavBar />
+        <DashBoard />
       </div>
     );
   }
