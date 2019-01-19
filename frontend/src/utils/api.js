@@ -1,4 +1,4 @@
-import { normalizeById, formatPost } from "./helpers";
+import { normalizeById } from "./helpers";
 const api = "http://localhost:3001";
 
 let token = Math.random()
