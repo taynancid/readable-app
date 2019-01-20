@@ -1,4 +1,4 @@
-import { RECEIVE_POSTS, ADD_POST } from "../actions/posts";
+import { RECEIVE_POSTS, ADD_POST, EDIT_POST } from "../actions/posts";
 
 export default function posts(state = {}, action) {
   switch (action.type) {
@@ -13,6 +13,17 @@ export default function posts(state = {}, action) {
         ...state,
         [post.id]: post
       };
+    case EDIT_POST:
+      const { id, title, body } = action;
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          title,
+          body
+        }
+      };
+
     default:
       return state;
   }

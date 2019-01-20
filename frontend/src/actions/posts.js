@@ -2,7 +2,7 @@ import * as API from "../utils/api";
 import { formatPost } from "../utils/helpers";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const ADD_POST = "ADD_POST";
-export const UPDATE_POST = "UPDATE_POST";
+export const EDIT_POST = "EDIT_POST";
 
 export function receivePosts(posts) {
   return {
@@ -25,15 +25,17 @@ export function handleAddPost(post) {
   };
 }
 
-function updatePost(post) {
+function editPost({ id, title, body }) {
   return {
-    type: UPDATE_POST,
-    post
+    type: EDIT_POST,
+    id,
+    title,
+    body
   };
 }
 
-export function handleUpdatePost(post) {
+export function handleEditPost(post) {
   return dispatch => {
-    return API.editPost(post).then(post => dispatch(addPost));
+    return API.editPost(post).then(post => dispatch(editPost(post)));
   };
 }

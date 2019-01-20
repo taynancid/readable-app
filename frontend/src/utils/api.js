@@ -26,14 +26,11 @@ export const getAllPosts = () =>
       return normalizeById(posts);
     });
 
-export const getInitialData = () => 
-  Promise.all([
-  getAllCat(),
-  getAllPosts(),
-]).then(([categories, posts]) => ({
-  categories,
-  posts,
-}))    
+export const getInitialData = () =>
+  Promise.all([getAllCat(), getAllPosts()]).then(([categories, posts]) => ({
+    categories,
+    posts
+  }));
 
 export const getPost = postId =>
   fetch(`${api}/posts/${postId}`, { headers })
@@ -80,14 +77,14 @@ export const votePost = (id, type) =>
     .then(res => res.json())
     .then(data => data);
 
-export const editPost = post =>
-  fetch(`${api}/posts/${post.id}`, {
+export const editPost = ({ id, title, body }) =>
+  fetch(`${api}/posts/${id}`, {
     method: "PUT",
     headers: {
       ...headers,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ ...post })
+    body: JSON.stringify({ title, body })
   }).then(res => res.json());
 
 /* Comment Related Calls */
