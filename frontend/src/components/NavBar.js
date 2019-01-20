@@ -5,41 +5,43 @@ class NavBar extends Component {
   render() {
     return (
       <nav
-        class="navbar is-primary is-transparent"
+        className="navbar is-primary is-transparent"
         role="navigation"
         aria-label="main navigation"
       >
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="https://localhost::3000">
+        <div className="container">
+          <div className="navbar-brand">
+            <a className="navbar-item" href="https://localhost::3000">
               <img
                 src="https://bulma.io/images/bulma-logo.png"
                 width="112"
                 height="28"
+                alt=""
               />
             </a>
           </div>
-          <div class="navbar-end">
+          <div className="navbar-end">
             <a
               role="button"
-              class="navbar-burger burger"
+              className="navbar-burger burger"
               aria-label="menu"
               aria-expanded="false"
               data-target="navbarBasicExample"
+              href="#"
             >
               <span aria-hidden="true" />
               <span aria-hidden="true" />
               <span aria-hidden="true" />
             </a>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link">Category</a>
-                  <div class="navbar-dropdown">
-                    <a class="navbar-item">All</a>
-                    <a class="navbar-item">React</a>
-                    <a class="navbar-item">Redux</a>
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link">Category</a>
+                  <div className="navbar-dropdown">
+                    <a className="navbar-item">All</a>
+                    <a className="navbar-item">React</a>
+                    <a className="navbar-item">Redux</a>
                   </div>
                 </div>
               </div>

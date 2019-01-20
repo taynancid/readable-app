@@ -6,12 +6,12 @@ import Post from "./Post";
 class Dashboard extends Component {
   render() {
     return (
-      <section class="section">
-        <div class="container">
+      <section className="section">
+        <div className="container">
           <ul>
             {this.props.postsId.map(id => (
-              <li class="level" key={id}>
-                <div class="level-item">
+              <li className="level" key={id}>
+                <div className="level-item">
                   <Post id={id} />
                 </div>
               </li>

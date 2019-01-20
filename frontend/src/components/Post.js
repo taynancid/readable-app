@@ -13,36 +13,42 @@ class Post extends Component {
     const { timestamp, body, title, author, commentCount, voteScore } = post;
 
     return (
-      <div class="box" style={{ width: "100%" }}>
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <strong class="title">{title}</strong>
-              <small class="level">{author}</small>
-              <small class="level">{formatDate(timestamp)}</small>
+      <div className="box" style={{ width: "100%" }}>
+        <article className="media">
+          <div className="media-content">
+            <div className="content">
+              <strong className="title">{title}</strong>
+              <small className="level">{author}</small>
+              <small className="level">{formatDate(timestamp)}</small>
               <hr />
               <br />
               {body}
             </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item" aria-label="voteUp">
-                  <span class="icon is-small">
-                    <i class="far fa-thumbs-up" />
+            <nav className="level is-mobile">
+              <div className="level-left">
+                <a className="level-item" aria-label="voteUp">
+                  <span className="icon is-small">
+                    <i className="far fa-thumbs-up" />
                   </span>
-                  {voteScore > 0 && <p class="level-item">{`+${voteScore}`}</p>}
+                  {voteScore > 0 && (
+                    <p className="level-item">{`+${voteScore}`}</p>
+                  )}
                 </a>
-                <a class="level-item" aria-label="voteDown">
-                  <span class="icon is-small">
-                    <i class="far fa-thumbs-down" />
+                <a className="level-item" aria-label="voteDown">
+                  <span className="icon is-small">
+                    <i className="far fa-thumbs-down" />
                   </span>
-                  {voteScore < 0 && <p class="level-item">{`${voteScore}`}</p>}
+                  {voteScore < 0 && (
+                    <p className="level-item">{`${voteScore}`}</p>
+                  )}
                 </a>
-                <a class="level-item" aria-label="comments">
-                  <span class="icon is-small">
-                    <i class="fas fa-comments" />
+                <a className="level-item" aria-label="comments">
+                  <span className="icon is-small">
+                    <i className="fas fa-comments" />
                   </span>
-                  {commentCount > 0 && <p class="level-item">{commentCount}</p>}
+                  {commentCount > 0 && (
+                    <p className="level-item">{commentCount}</p>
+                  )}
                 </a>
               </div>
             </nav>
