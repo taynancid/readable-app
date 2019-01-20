@@ -63,7 +63,7 @@ export const deletePost = postID =>
     }
   })
     .then(res => res.json())
-    .then(data => data);
+    .then(data => data.id);
 
 export const votePost = (id, type) =>
   fetch(`${api}/posts/${id}`, {

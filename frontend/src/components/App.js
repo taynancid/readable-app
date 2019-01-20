@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
-import { handleAddPost, handleUpdatePost } from "../actions/posts";
+import { handleAddPost } from "../actions/posts";
 import NavBar from "./NavBar";
 import DashBoard from "./DashBoard";
 import OptionsRow from "./OptionsRow";
@@ -17,9 +17,6 @@ class App extends Component {
       category: "react"
     };
     this.props.dispatch(handleAddPost(newPost));
-
-    console.log(newPost);
-    // this.props.dispatch(handleUpdatePost(newPost));
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatDate } from "../utils/helpers";
-import { handleEditPost } from "../actions/posts";
+import { handleEditPost, handleDeletePost } from "../actions/posts";
 
 class Post extends Component {
   state = {
@@ -39,6 +39,11 @@ class Post extends Component {
         editMode: !prevState.editMode
       };
     });
+  };
+
+  deletePost = e => {
+    const { dispatch, id } = this.props;
+    dispatch(handleDeletePost(id));
   };
 
   handleSubmit = e => {
@@ -94,7 +99,7 @@ class Post extends Component {
                           </a>
                         </div>
                         <div className="dropdown-item">
-                          <a>
+                          <a onClick={this.deletePost}>
                             <span className="icon">
                               <i className="fas fa-trash-alt" />
                             </span>

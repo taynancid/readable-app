@@ -25,9 +25,11 @@ class Dashboard extends Component {
 
 function mapStateToProps({ posts }) {
   return {
-    postsId: Object.keys(posts).sort((a, b) => {
-      return posts[b].timestamp - posts[a].timestamp;
-    })
+    postsId: Object.keys(posts)
+      .filter(id => posts[id].deleted === false)
+      .sort((a, b) => {
+        return posts[b].timestamp - posts[a].timestamp;
+      })
   };
 }
 
