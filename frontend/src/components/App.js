@@ -19,7 +19,7 @@ class App extends Component {
     this.props.dispatch(handleAddPost(newPost));
 
     console.log(newPost);
-    this.props.dispatch(handleUpdatePost(newPost));
+    // this.props.dispatch(handleUpdatePost(newPost));
   }
 
   render() {

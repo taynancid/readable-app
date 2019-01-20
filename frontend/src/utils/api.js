@@ -26,6 +26,15 @@ export const getAllPosts = () =>
       return normalizeById(posts);
     });
 
+export const getInitialData = () => 
+  Promise.all([
+  getAllCat(),
+  getAllPosts(),
+]).then(([categories, posts]) => ({
+  categories,
+  posts,
+}))    
+
 export const getPost = postId =>
   fetch(`${api}/posts/${postId}`, { headers })
     .then(res => res.json())
