@@ -46,6 +46,7 @@ class NavBar extends Component {
                         to={`/${category}`}
                         exact
                         activeClassName="active"
+                        key={category}
                       >
                         {category}
                       </NavLink>

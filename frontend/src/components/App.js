@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import DashBoard from "./DashBoard";
 import OptionsRow from "./OptionsRow";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import PostPage from "./PostPage";
 
 class App extends Component {
   componentDidMount() {
@@ -38,6 +39,16 @@ class App extends Component {
               )}
             />
           ))}
+          <Route
+            path="/:category/:id"
+            exact
+            render={props => (
+              <Fragment>
+                <NavBar />
+                <PostPage {...props} />
+              </Fragment>
+            )}
+          />
         </Fragment>
       </Router>
     );

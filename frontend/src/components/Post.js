@@ -6,6 +6,7 @@ import {
   handleDeletePost,
   handleVotePost
 } from "../actions/posts";
+import { Link } from "react-router-dom";
 
 class Post extends Component {
   state = {
@@ -74,7 +75,16 @@ class Post extends Component {
 
     const { editMode, newTitle, newBody } = this.state;
 
-    const { timestamp, body, title, author, commentCount, voteScore } = post;
+    const {
+      timestamp,
+      body,
+      title,
+      author,
+      commentCount,
+      voteScore,
+      category,
+      id
+    } = post;
 
     return (
       <div className="box" style={{ width: "100%" }}>
@@ -129,7 +139,7 @@ class Post extends Component {
                 <small className="level">{formatDate(timestamp)}</small>
                 <hr />
                 <br />
-                {body}
+                <Link to={`/${category}/${id}`}>{body}</Link>
               </div>
               <nav className="level is-mobile">
                 <div className="level-left">
