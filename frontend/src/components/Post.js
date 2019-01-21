@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatDate } from "../utils/helpers";
-import { handleEditPost, handleDeletePost } from "../actions/posts";
+import {
+  handleEditPost,
+  handleDeletePost,
+  handleVotePost
+} from "../actions/posts";
 
 class Post extends Component {
   state = {
@@ -10,8 +14,16 @@ class Post extends Component {
     newBody: ""
   };
 
-  handleVote = e => {
-    //todo
+  handleVoteUp = e => {
+    const { dispatch, id } = this.props;
+
+    dispatch(handleVotePost(id, "upVote"));
+  };
+
+  handleVoteDown = e => {
+    const { dispatch, id } = this.props;
+
+    dispatch(handleVotePost(id, "downVote"));
   };
 
   handleTitleChange = e => {
@@ -121,17 +133,25 @@ class Post extends Component {
               </div>
               <nav className="level is-mobile">
                 <div className="level-left">
-                  <a className="level-item" aria-label="voteUp">
+                  <a
+                    className="level-item"
+                    aria-label="voteUp"
+                    onClick={this.handleVoteUp}
+                  >
                     <span className="icon is-small">
-                      <i className="far fa-thumbs-up" />
+                      <i value="upVote" className="far fa-thumbs-up" />
                     </span>
                     {voteScore > 0 && (
                       <p className="level-item">{`+${voteScore}`}</p>
                     )}
                   </a>
-                  <a className="level-item" aria-label="voteDown">
+                  <a
+                    className="level-item"
+                    aria-label="voteDown"
+                    onClick={this.handleVoteDown}
+                  >
                     <span className="icon is-small">
-                      <i className="far fa-thumbs-down" />
+                      <i value="downVote" className="far fa-thumbs-down" />
                     </span>
                     {voteScore < 0 && (
                       <p className="level-item">{`${voteScore}`}</p>
