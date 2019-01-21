@@ -92,7 +92,9 @@ export const editPost = ({ id, title, body }) =>
 export const getCommentsByPost = postID =>
   fetch(`${api}/posts/${postID}/comments`, { headers })
     .then(res => res.json())
-    .then(data => data);
+    .then(comments => {
+      return normalizeById(comments);
+    });
 
 export const addComment = comment =>
   fetch(`${api}/comments`, {

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
 import { handleInitialData } from "../actions/shared";
+import { handleGetComments } from "../actions/comments";
 import { connect } from "react-redux";
 import { handleAddPost } from "../actions/posts";
 import NavBar from "./NavBar";
