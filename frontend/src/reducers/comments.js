@@ -1,4 +1,8 @@
-import { GET_COMMENTS, VOTE_COMMENT } from "../actions/comments";
+import {
+  GET_COMMENTS,
+  VOTE_COMMENT,
+  DELETE_COMMENT
+} from "../actions/comments";
 
 export default function comments(state = {}, action) {
   const { comments, id, voteScore } = action;
@@ -14,6 +18,14 @@ export default function comments(state = {}, action) {
         [id]: {
           ...state[id],
           voteScore
+        }
+      };
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          deleted: true
         }
       };
     default:

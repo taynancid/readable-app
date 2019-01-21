@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatDate } from "../utils/helpers";
-import { handleVoteComment } from "../actions/comments";
+import { handleVoteComment, handleDeleteComment } from "../actions/comments";
 
 class Comment extends Component {
   handleVoteUp = e => {
@@ -16,7 +16,11 @@ class Comment extends Component {
     dispatch(handleVoteComment(id, "downVote"));
   };
 
-  handleDelete = e => {};
+  handleDelete = e => {
+    const { dispatch, id } = this.props;
+
+    dispatch(handleDeleteComment(id));
+  };
 
   render() {
     const { author, body, timestamp, voteScore } = this.props.comment;
@@ -65,7 +69,7 @@ class Comment extends Component {
                 </nav>
               </div>
               <div class="media-right">
-                <button class="delete" />
+                <button class="delete" onClick={this.handleDelete} />
               </div>
             </article>
           </div>

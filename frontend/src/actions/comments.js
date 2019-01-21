@@ -1,6 +1,8 @@
 import * as API from "../utils/api";
+import { handleInitialData } from "./shared";
 export const GET_COMMENTS = "GET_COMMENTS";
 export const VOTE_COMMENT = "VOTE_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";
 
 function getComments(comments) {
   return {
@@ -30,5 +32,20 @@ export function handleVoteComment(id, voteType) {
     return API.voteComment(id, voteType).then(({ id, voteScore }) =>
       dispatch(voteComment(id, voteScore))
     );
+  };
+}
+
+function deleteComment(id) {
+  return {
+    type: DELETE_COMMENT,
+    id
+  };
+}
+
+export function handleDeleteComment(id) {
+  return dispatch => {
+    API.deleteComment(id)
+      .then(({ id }) => dispatch(deleteComment(id)))
+      .then(() => dispatch(handleInitialData()));
   };
 }
