@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Post from "./Post";
 import Comment from "./Comment";
+import NewComment from "./NewComment";
 import { handleGetComments } from "../actions/comments";
 
 class PostPage extends Component {
@@ -19,7 +20,8 @@ class PostPage extends Component {
             <Post id={id} />
           </div>
         </section>
-        {commentsId && commentsId.map(id => <Comment id={id} />)}
+        {commentsId && commentsId.map(id => <Comment id={id} key={id} />)}
+        <NewComment />
       </Fragment>
     );
   }

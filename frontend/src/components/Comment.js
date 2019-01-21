@@ -28,9 +28,9 @@ class Comment extends Component {
       <section className="section">
         <div className="container" style={{ width: "60%" }}>
           <div className="box">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
+            <article className="media">
+              <div className="media-content">
+                <div className="content">
                   <p>
                     <strong>{author}</strong>
                     {"     "}
@@ -68,8 +68,8 @@ class Comment extends Component {
                   </div>
                 </nav>
               </div>
-              <div class="media-right">
-                <button class="delete" onClick={this.handleDelete} />
+              <div className="media-right">
+                <button className="delete" onClick={this.handleDelete} />
               </div>
             </article>
           </div>
