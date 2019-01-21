@@ -143,7 +143,6 @@ function mapStateToProps({ categories }, { closeModal }) {
   for (const category in categories) {
     catArray.push(categories[category].name);
   }
-  console.log(catArray);
   return {
     categories: catArray,
     closeModal

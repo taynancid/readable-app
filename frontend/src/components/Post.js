@@ -80,7 +80,10 @@ class Post extends Component {
                         aria-controls="dropdown-menu6"
                       >
                         <span className="icon is-small">
-                          <i className="fas fa-ellipsis-v" aria-hidden="true" />
+                          <i
+                            className="fas fa-ellipsis-v fa-xs"
+                            aria-hidden="true"
+                          />
                         </span>
                       </a>
                     </div>

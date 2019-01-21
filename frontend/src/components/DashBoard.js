@@ -23,10 +23,13 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ posts }) {
+function mapStateToProps({ posts }, props) {
+  const { category } = props.match.params;
+
   return {
     postsId: Object.keys(posts)
       .filter(id => posts[id].deleted === false)
+      .filter(id => (category ? posts[id].category === category : id))
       .sort((a, b) => {
         return posts[b].timestamp - posts[a].timestamp;
       })

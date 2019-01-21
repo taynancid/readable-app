@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "bulma/css/bulma.css";
+import { NavLink } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
+    const { categories } = this.props;
     return (
       <nav
         className="navbar is-primary is-transparent"
@@ -11,14 +14,12 @@ class NavBar extends Component {
       >
         <div className="container">
           <div className="navbar-brand">
-            <a className="navbar-item" href="https://localhost::3000">
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-                alt=""
-              />
-            </a>
+            <NavLink
+              className="navbar-item fas fa-igloo"
+              to="/"
+              exact
+              activeClassName="active"
+            />
           </div>
           <div className="navbar-end">
             <a
@@ -39,9 +40,16 @@ class NavBar extends Component {
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link">Category</a>
                   <div className="navbar-dropdown">
-                    <a className="navbar-item">All</a>
-                    <a className="navbar-item">React</a>
-                    <a className="navbar-item">Redux</a>
+                    {categories.map(category => (
+                      <NavLink
+                        className="navbar-item"
+                        to={`/${category}`}
+                        exact
+                        activeClassName="active"
+                      >
+                        {category}
+                      </NavLink>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -53,4 +61,14 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+function mapStateToProps({ categories }) {
+  let catArray = [];
+  for (const category in categories) {
+    catArray.push(categories[category].name);
+  }
+  return {
+    categories: catArray
+  };
+}
+
+export default connect(mapStateToProps)(NavBar);
