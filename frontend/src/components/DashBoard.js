@@ -5,24 +5,22 @@ import Post from "./Post";
 
 class Dashboard extends Component {
   state = {
-    sortType: "category"
+    sortType: "timestamp"
   };
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <ul>
-            {this.props.postsId.map(id => (
-              <li className="level" key={id}>
-                <div className="level-item">
-                  <Post id={id} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <div className="container">
+        <ul>
+          {this.props.postsId.map(id => (
+            <li className="level" key={id}>
+              <div className="level-item">
+                <Post id={id} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }

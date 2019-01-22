@@ -30,7 +30,6 @@ class MainPage extends Component {
 
   handleSort = e => {
     const sortType = e.target.id;
-
     this.setState(prevState => {
       return {
         ...prevState,
@@ -85,11 +84,8 @@ class MainPage extends Component {
               </p>
             </div>
           </div>
+          <DashBoard sortType={this.state.sortType} />
         </div>
-        <DashBoard
-          category={this.props.category}
-          sortType={this.state.sortType}
-        />
       </section>
     );
   }
