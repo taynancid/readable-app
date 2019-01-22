@@ -87,7 +87,7 @@ class Post extends Component {
     } = post;
 
     return (
-      <div className="box" style={{ width: "100%" }}>
+      <div className="box" style={{ width: "90%" }}>
         {editMode === false ? (
           <article className="media">
             <div className="media-content">

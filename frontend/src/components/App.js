@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { handleAddPost } from "../actions/posts";
 import NavBar from "./NavBar";
 import DashBoard from "./DashBoard";
-import OptionsRow from "./OptionsRow";
+import MainPage from "./MainPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PostPage from "./PostPage";
 
@@ -33,8 +33,7 @@ class App extends Component {
               render={props => (
                 <Fragment>
                   <NavBar />
-                  <OptionsRow />
-                  <DashBoard {...props} />
+                  <MainPage {...props} />
                 </Fragment>
               )}
             />
