@@ -103,7 +103,9 @@ class NewPostModal extends Component {
               <div className="select">
                 <select value={category} onChange={this.handleCatChange}>
                   {categories.map(category => (
-                    <option value={category}>{category}</option>
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -125,12 +127,16 @@ class NewPostModal extends Component {
             className="level modal-card-foot"
             style={{ justifyContent: "space-between" }}
           >
-            <a className="button" onClick={closeModal}>
+            <button className="button" onClick={closeModal}>
               Cancel
-            </a>
-            <a className="button is-primary" onClick={this.handleSubmit}>
+            </button>
+            <button
+              className="button is-primary"
+              onClick={this.handleSubmit}
+              disabled={body === "" || title === "" || author === ""}
+            >
               Add
-            </a>
+            </button>
           </div>
         </div>
       </div>

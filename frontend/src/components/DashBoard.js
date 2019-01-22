@@ -9,12 +9,13 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log(this.props.category);
     return (
       <div className="container">
         <ul>
           {this.props.postsId.map(id => (
             <li className="level" key={id}>
-              <div className="level-item">
+              <div className="level-item" style={{ flexShrink: 1 }}>
                 <Post id={id} />
               </div>
             </li>

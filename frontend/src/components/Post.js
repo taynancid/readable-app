@@ -110,7 +110,7 @@ class Post extends Component {
 
     if (editMode === false) {
       return (
-        <div className="box" style={{ width: "90%" }}>
+        <div className="box" style={{ width: "90%", margin: "auto" }}>
           <article className="media">
             <div className="media-content">
               <div className="content">
@@ -127,7 +127,7 @@ class Post extends Component {
                   <small>{formatDate(timestamp)}</small>
                 </p>
                 <br />
-                <p>{body}</p>
+                <p className="text">{body}</p>
               </div>
               <hr />
               <nav className="level is-mobile">
@@ -156,16 +156,18 @@ class Post extends Component {
                       <p className="level-item">{`${voteScore}`}</p>
                     )}
                   </a>
-                  <a className="level-item" aria-label="comments">
-                    <span className="icon is-small">
-                      <i className="fas fa-comments" />
-                    </span>
-                    {commentCount > 0 && (
-                      <p className="level-item" style={{ padding: "3px" }}>
-                        {commentCount}
-                      </p>
-                    )}
-                  </a>
+                  <Link to={`/${category}/${id}`}>
+                    <div className="level-item" aria-label="comments">
+                      <span className="icon is-small">
+                        <i className="fas fa-comments" />
+                      </span>
+                      {commentCount > 0 && (
+                        <p className="level-item" style={{ padding: "3px" }}>
+                          {commentCount}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
                 </div>
               </nav>
             </div>

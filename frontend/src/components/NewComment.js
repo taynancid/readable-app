@@ -33,14 +33,22 @@ class NewComment extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { author, body } = this.state;
-    console.log(this.props);
 
     const { dispatch, parentId } = this.props;
 
     dispatch(handleAddComment({ author, body, parentId }));
+
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        body: "",
+        author: ""
+      };
+    });
   };
 
   render() {
+    const { author, body } = this.state;
     return (
       <section className="modal-card-body">
         <div className="container" style={{ width: "60%" }}>
@@ -52,7 +60,7 @@ class NewComment extends Component {
                 className="input"
                 type="text"
                 placeholder="Author"
-                value={this.state.author}
+                value={author}
                 onChange={this.handleTextChange}
               />
               <span className="icon is-small is-left">
@@ -67,15 +75,19 @@ class NewComment extends Component {
                 id="body"
                 className="textarea"
                 placeholder="New Comment"
-                value={this.state.body}
+                value={body}
                 onChange={this.handleTextChange}
               />
             </div>
           </div>
           <div className="level" style={{ justifyContent: "space-between" }}>
-            <a className="button is-primary" onClick={this.handleSubmit}>
+            <button
+              className="button is-primary"
+              onClick={this.handleSubmit}
+              disabled={author === "" || body === ""}
+            >
               Save
-            </a>
+            </button>
           </div>
         </div>
       </section>

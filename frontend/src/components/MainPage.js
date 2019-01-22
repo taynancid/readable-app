@@ -74,17 +74,23 @@ class MainPage extends Component {
               </div>
             </div>
             <div className="level-right">
-              <p className="level-item">
-                <a className="button is-success" onClick={this.handleNewClick}>
+              <div className="level-item">
+                <button
+                  className="button is-success"
+                  onClick={this.handleNewClick}
+                >
                   New
-                </a>
+                </button>
                 {this.state.modalState === true && (
                   <NewPostModal closeModal={this.handleCloseModal} />
                 )}
-              </p>
+              </div>
             </div>
           </div>
-          <DashBoard sortType={this.state.sortType} />
+          <DashBoard
+            sortType={this.state.sortType}
+            category={this.props.category}
+          />
         </div>
       </section>
     );

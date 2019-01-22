@@ -16,7 +16,7 @@ class PostPage extends Component {
     return (
       <Fragment>
         <section className="section">
-          <div className="container">
+          <div className="container" style={{ justifyContent: "center" }}>
             <Post id={id} />
           </div>
         </section>
