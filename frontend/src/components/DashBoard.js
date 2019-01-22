@@ -42,8 +42,10 @@ function mapStateToProps({ posts }, props) {
       .filter(id => posts[id].deleted === false)
       .filter(id => (category ? posts[id].category === category : id))
       .sort((a, b) => {
-        if (sortType === "timestamp") {
+        if (sortType === "mostRecent") {
           return posts[b].timestamp - posts[a].timestamp;
+        } else if (sortType === "leastRecent") {
+          return posts[a].timestamp - posts[b].timestamp;
         } else {
           return posts[b].voteScore - posts[a].voteScore;
         }

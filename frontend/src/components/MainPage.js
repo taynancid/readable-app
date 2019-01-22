@@ -77,8 +77,13 @@ class MainPage extends Component {
                   >
                     <div className="dropdown-content">
                       <div className="dropdown-item">
-                        <a id="timestamp" onClick={this.handleSort}>
+                        <a id="mostRecent" onClick={this.handleSort}>
                           Most recent
+                        </a>
+                      </div>
+                      <div className="dropdown-item">
+                        <a id="leastRecent" onClick={this.handleSort}>
+                          Least recent
                         </a>
                       </div>
                       <div className="dropdown-item">
