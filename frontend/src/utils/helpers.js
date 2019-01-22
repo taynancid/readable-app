@@ -41,3 +41,18 @@ export function formatPost(post) {
     commentCount: 0
   };
 }
+
+export function formatComment(comment) {
+  const { author, body, parentId } = comment;
+
+  return {
+    id: generateUID(),
+    timestamp: Date.now(),
+    author,
+    body,
+    parentId,
+    voteScore: 0,
+    deleted: false,
+    parentDeleted: false
+  };
+}

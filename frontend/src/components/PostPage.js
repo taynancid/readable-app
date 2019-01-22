@@ -21,7 +21,7 @@ class PostPage extends Component {
           </div>
         </section>
         {commentsId && commentsId.map(id => <Comment id={id} key={id} />)}
-        <NewComment />
+        <NewComment {...this.props} />
       </Fragment>
     );
   }

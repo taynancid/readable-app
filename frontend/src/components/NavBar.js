@@ -8,7 +8,7 @@ class NavBar extends Component {
     const { categories } = this.props;
     return (
       <nav
-        className="navbar is-primary is-transparent"
+        className="navbar is-primary is-transparent is-fixed-top"
         role="navigation"
         aria-label="main navigation"
       >

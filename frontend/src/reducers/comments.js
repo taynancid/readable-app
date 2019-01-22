@@ -1,11 +1,12 @@
 import {
   GET_COMMENTS,
   VOTE_COMMENT,
-  DELETE_COMMENT
+  DELETE_COMMENT,
+  ADD_COMMENT
 } from "../actions/comments";
 
 export default function comments(state = {}, action) {
-  const { comments, id, voteScore } = action;
+  const { comments, id, voteScore, comment } = action;
   switch (action.type) {
     case GET_COMMENTS:
       return {
@@ -27,6 +28,11 @@ export default function comments(state = {}, action) {
           ...state[id],
           deleted: true
         }
+      };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        [comment.id]: comment
       };
     default:
       return state;
