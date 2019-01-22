@@ -40,59 +40,78 @@ class MainPage extends Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <div className="level">
-            <div className="level-left">
-              <div className="dropdown is-hoverable">
-                <div className="dropdown-trigger">
-                  <button
-                    className="button"
-                    aria-haspopup="true"
-                    aria-controls="dropdown-menu4"
+      <div>
+        <div class="hero is-medium is-primary is-bold">
+          <div class="hero-body">
+            <div class="container has-text-centered is-large">
+              <span className="icon is-large">
+                <i className="fab fa-forumbee" style={{ fontSize: "30px" }} />
+              </span>
+              <h1 style={{ fontFamily: "Bungee Inline", fontSize: "75px" }}>
+                Readable
+              </h1>
+            </div>
+          </div>
+        </div>
+        <section className="section">
+          <div className="container">
+            <div className="level">
+              <div className="level-left">
+                <div className="dropdown is-hoverable">
+                  <div className="dropdown-trigger">
+                    <button
+                      className="button"
+                      aria-haspopup="true"
+                      aria-controls="dropdown-menu4"
+                    >
+                      <span>Sort By</span>
+                      <span className="icon is-small">
+                        <i className="fas fa-angle-down" aria-hidden="true" />
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    className="dropdown-menu"
+                    id="dropdown-menu4"
+                    role="menu"
                   >
-                    <span>Sort By</span>
-                    <span className="icon is-small">
-                      <i className="fas fa-angle-down" aria-hidden="true" />
-                    </span>
-                  </button>
-                </div>
-                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
-                  <div className="dropdown-content">
-                    <div className="dropdown-item">
-                      <a id="timestamp" onClick={this.handleSort}>
-                        Most recent
-                      </a>
-                    </div>
-                    <div className="dropdown-item">
-                      <a id="voteCount" onClick={this.handleSort}>
-                        Vote Count
-                      </a>
+                    <div className="dropdown-content">
+                      <div className="dropdown-item">
+                        <a id="timestamp" onClick={this.handleSort}>
+                          Most recent
+                        </a>
+                      </div>
+                      <div className="dropdown-item">
+                        <a id="voteCount" onClick={this.handleSort}>
+                          Vote Count
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="level-right">
-              <div className="level-item">
-                <button
-                  className="button is-success"
-                  onClick={this.handleNewClick}
-                >
-                  New
-                </button>
-                {this.state.modalState === true && (
-                  <NewPostModal closeModal={this.handleCloseModal} />
-                )}
+              <div className="level-right">
+                <div className="level-item">
+                  <button
+                    className="button is-primary"
+                    onClick={this.handleNewClick}
+                  >
+                    New Post
+                  </button>
+                  {this.state.modalState === true && (
+                    <NewPostModal closeModal={this.handleCloseModal} />
+                  )}
+                </div>
               </div>
             </div>
+            <hr />
+            <DashBoard
+              sortType={this.state.sortType}
+              category={this.props.category}
+            />
           </div>
-          <DashBoard
-            sortType={this.state.sortType}
-            category={this.props.category}
-          />
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
 }

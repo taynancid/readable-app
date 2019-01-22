@@ -9,18 +9,26 @@ class Dashboard extends Component {
   };
 
   render() {
-    console.log(this.props.category);
+    const { postsId } = this.props;
     return (
       <div className="container">
-        <ul>
-          {this.props.postsId.map(id => (
-            <li className="level" key={id}>
-              <div className="level-item" style={{ flexShrink: 1 }}>
-                <Post id={id} />
-              </div>
-            </li>
-          ))}
-        </ul>
+        {postsId.length > 0 ? (
+          <ul>
+            {this.props.postsId.map(id => (
+              <li className="level" key={id}>
+                <div className="level-item" style={{ flexShrink: 1 }}>
+                  <Post id={id} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="level">
+            <div className="level-item">
+              <strong>This Category Has No Posts</strong>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
