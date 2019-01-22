@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import MainPage from "./MainPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PostPage from "./PostPage";
+import Footer from "./Footer";
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class App extends Component {
                 <Fragment>
                   <NavBar />
                   <MainPage {...props} />
+                  <Footer />
                 </Fragment>
               )}
             />
@@ -36,6 +38,7 @@ class App extends Component {
               <Fragment>
                 <NavBar />
                 <PostPage {...props} />
+                <Footer />
               </Fragment>
             )}
           />
