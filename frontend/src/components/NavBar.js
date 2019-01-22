@@ -15,27 +15,23 @@ class NavBar extends Component {
         <div className="container">
           <div className="navbar-brand">
             <NavLink
-              className="navbar-item fas fa-igloo"
+              className="navbar-item fab fa-forumbee"
               to="/"
               exact
               activeClassName="active"
-            />
+            >
+              <h1
+                className="navbar-item"
+                width="112"
+                height="28"
+                style={{ fontFamily: "Bungee Inline" }}
+              >
+                Readable
+              </h1>
+            </NavLink>
           </div>
           <div className="navbar-end">
-            <a
-              role="button"
-              className="navbar-burger burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navbarBasicExample"
-              href="#"
-            >
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </a>
-
-            <div id="navbarBasicExample" className="navbar-menu">
+            <div className="navbar-menu">
               <div className="navbar-start">
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link">Category</a>
