@@ -5,6 +5,7 @@ export const GET_COMMENTS = "GET_COMMENTS";
 export const VOTE_COMMENT = "VOTE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const ADD_COMMENT = "ADD_COMMENT";
+export const EDIT_COMMENT = "EDIT_COMMENT";
 
 function getComments(comments) {
   return {
@@ -65,5 +66,20 @@ export function handleAddComment(comment) {
     API.addComment(formatedCom)
       .then(comment => dispatch(addComment(comment)))
       .then(() => dispatch(handleInitialData()));
+  };
+}
+
+function editComment({ id, author, body }) {
+  return {
+    type: EDIT_COMMENT,
+    id,
+    author,
+    body
+  };
+}
+
+export function handleEditComment(comment) {
+  return dispatch => {
+    API.editComment(comment).then(comment => dispatch(editComment(comment)));
   };
 }

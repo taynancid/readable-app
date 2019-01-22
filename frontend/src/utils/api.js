@@ -125,7 +125,7 @@ export const voteComment = (id, type) =>
     .then(res => res.json())
     .then(data => data);
 
-export const updateComment = comment =>
+export const editComment = comment =>
   fetch(`${api}/comments/${comment.id}`, {
     method: "PUT",
     headers: {
