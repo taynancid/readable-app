@@ -20,6 +20,13 @@ class PostPage extends Component {
             <Post id={id} />
           </div>
         </section>
+        <div className="level">
+          <div className="level-item">
+            <strong className="subtitle has-text-success">{`${
+              commentsId.length
+            } Comments`}</strong>
+          </div>
+        </div>
         {commentsId && commentsId.map(id => <Comment id={id} key={id} />)}
         <NewComment {...this.props} />
       </Fragment>

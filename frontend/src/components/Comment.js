@@ -96,107 +96,102 @@ class Comment extends Component {
     const { author, body, timestamp, voteScore } = this.props.comment;
     const { editMode, newAuthor, newBody } = this.state;
     return (
-      <section className="section">
-        <div className="container" style={{ width: "60%" }}>
-          {editMode === false ? (
-            <div className="box">
-              <article className="media">
-                <div className="media-content">
-                  <div className="content">
-                    <p>
-                      <strong>{author}</strong>
-                      {"     "}
-                      <small>{formatDate(timestamp)}</small>
-                      <br />
-                      {body}
-                    </p>
+      <div className="container" style={{ width: "60%", padding: "10px" }}>
+        {editMode === false ? (
+          <div className="box">
+            <article className="media">
+              <div className="media-content">
+                <div className="content">
+                  <p>
+                    <strong>{author}</strong>
+                    {"     "}
+                    <small>{formatDate(timestamp)}</small>
+                    <br />
+                    {body}
+                  </p>
+                </div>
+                <nav className="level is-mobile">
+                  <div className="level-left">
+                    <a
+                      id="upVote"
+                      className="level-item"
+                      aria-label="voteUp"
+                      onClick={this.handleVote}
+                    >
+                      <span className="icon is-small">
+                        <i id="upVote" className="far fa-thumbs-up" />
+                      </span>
+                      {voteScore > 0 && (
+                        <p className="level-item">{`+${voteScore}`}</p>
+                      )}
+                    </a>
+                    <a
+                      className="level-item"
+                      aria-label="voteDown"
+                      onClick={this.handleVote}
+                    >
+                      <span className="icon is-small">
+                        <i id="downVote" className="far fa-thumbs-down" />
+                      </span>
+                      {voteScore < 0 && (
+                        <p className="level-item">{`${voteScore}`}</p>
+                      )}
+                    </a>
+                    <a
+                      className="level-item"
+                      aria-label="voteDown"
+                      onClick={this.toggleEditMode}
+                    >
+                      <span className="icon is-small">
+                        <i className="far fa-edit" />
+                      </span>
+                    </a>
                   </div>
-                  <nav className="level is-mobile">
-                    <div className="level-left">
-                      <a
-                        id="upVote"
-                        className="level-item"
-                        aria-label="voteUp"
-                        onClick={this.handleVote}
-                      >
-                        <span className="icon is-small">
-                          <i id="upVote" className="far fa-thumbs-up" />
-                        </span>
-                        {voteScore > 0 && (
-                          <p className="level-item">{`+${voteScore}`}</p>
-                        )}
-                      </a>
-                      <a
-                        className="level-item"
-                        aria-label="voteDown"
-                        onClick={this.handleVote}
-                      >
-                        <span className="icon is-small">
-                          <i id="downVote" className="far fa-thumbs-down" />
-                        </span>
-                        {voteScore < 0 && (
-                          <p className="level-item">{`${voteScore}`}</p>
-                        )}
-                      </a>
-                      <a
-                        className="level-item"
-                        aria-label="voteDown"
-                        onClick={this.toggleEditMode}
-                      >
-                        <span className="icon is-small">
-                          <i className="far fa-edit" />
-                        </span>
-                      </a>
-                    </div>
-                  </nav>
-                </div>
-                <div className="media-right">
-                  <button className="delete" onClick={this.handleDelete} />
-                </div>
-              </article>
-            </div>
-          ) : (
-            <div className="box">
-              <div className="field">
-                <label className="label">Author</label>
-                <div className="control">
-                  <input
-                    id="author"
-                    className="input"
-                    type="text"
-                    placeholder="Author"
-                    value={newAuthor}
-                    onChange={this.handleTextChange}
-                  />
-                </div>
+                </nav>
               </div>
-              <div className="field">
-                <label className="label">Post</label>
-                <div className="control">
-                  <textarea
-                    id="body"
-                    className="textarea"
-                    placeholder="New Post"
-                    value={newBody}
-                    onChange={this.handleTextChange}
-                  />
-                </div>
+              <div className="media-right">
+                <button className="delete" onClick={this.handleDelete} />
               </div>
-              <div
-                className="level"
-                style={{ justifyContent: "space-between" }}
-              >
-                <a className="button" onClick={this.handleCancel}>
-                  Cancel
-                </a>
-                <a className="button is-primary" onClick={this.handleSubmit}>
-                  Save
-                </a>
+            </article>
+          </div>
+        ) : (
+          <div className="box">
+            <div className="field">
+              <label className="label">Author</label>
+              <div className="control">
+                <input
+                  id="author"
+                  className="input"
+                  type="text"
+                  placeholder="Author"
+                  value={newAuthor}
+                  onChange={this.handleTextChange}
+                />
               </div>
             </div>
-          )}
-        </div>
-      </section>
+            <div className="field">
+              <label className="label">Post</label>
+              <div className="control">
+                <textarea
+                  id="body"
+                  className="textarea"
+                  placeholder="New Post"
+                  value={newBody}
+                  onChange={this.handleTextChange}
+                />
+              </div>
+            </div>
+            <div className="level" style={{ justifyContent: "space-between" }}>
+              <a className="button" onClick={this.handleCancel}>
+                Cancel
+              </a>
+              <a className="button is-primary" onClick={this.handleSubmit}>
+                Save
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
     );
   }
 }

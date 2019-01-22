@@ -50,7 +50,14 @@ class NewComment extends Component {
   render() {
     const { author, body } = this.state;
     return (
-      <section className="modal-card-body">
+      <div className="modal-card-body">
+        <div className="level">
+          <div className="level-item">
+            <strong className="subtitle has-text-success">
+              Add a New Comment
+            </strong>
+          </div>
+        </div>
         <div className="container" style={{ width: "60%" }}>
           <div className="field">
             <label className="label">Author</label>
@@ -90,7 +97,7 @@ class NewComment extends Component {
             </button>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }
