@@ -11,7 +11,7 @@ class PostPage extends Component {
   }
 
   render() {
-    if (this.props.post.deleted === true) {
+    if (this.props.post === undefined) {
       return (
         <section className="section">
           <div className="container">
