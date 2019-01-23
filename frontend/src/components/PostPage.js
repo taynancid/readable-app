@@ -7,7 +7,6 @@ import { handleGetComments } from "../actions/comments";
 
 class PostPage extends Component {
   componentDidMount() {
-    console.log("show");
     this.props.dispatch(handleGetComments(this.props.id));
   }
 
