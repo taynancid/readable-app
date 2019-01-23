@@ -41,9 +41,9 @@ class MainPage extends Component {
   render() {
     return (
       <div>
-        <div class="hero is-medium is-primary is-bold">
-          <div class="hero-body">
-            <div class="container has-text-centered is-large">
+        <div className="hero is-medium is-primary is-bold">
+          <div className="hero-body">
+            <div className="container has-text-centered is-large">
               <span className="icon is-large">
                 <i className="fab fa-forumbee" style={{ fontSize: "30px" }} />
               </span>
