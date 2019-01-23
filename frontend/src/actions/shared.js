@@ -1,4 +1,4 @@
-import { getInitialData } from "../utils/api";
+import { getInitialData } from "../utils/api/shared";
 import { receivePosts } from "./posts";
 import { receiveCats } from "./categories";
 import { showLoading, hideLoading } from "react-redux-loading";

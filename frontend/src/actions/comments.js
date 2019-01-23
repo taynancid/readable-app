@@ -1,4 +1,4 @@
-import * as API from "../utils/api";
+import * as API from "../utils/api/comments";
 import { handleInitialData } from "./shared";
 import { formatComment } from "../utils/helpers";
 export const GET_COMMENTS = "GET_COMMENTS";

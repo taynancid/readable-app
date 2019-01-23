@@ -1,4 +1,4 @@
-import * as API from "../utils/api";
+import * as API from "../utils/api/posts";
 import { formatPost } from "../utils/helpers";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const ADD_POST = "ADD_POST";
