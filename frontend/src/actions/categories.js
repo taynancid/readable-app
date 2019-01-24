@@ -1,8 +1,8 @@
-export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
+import * as actionTypes from "../actions/actionTypes";
 
 export function receiveCats(categories) {
   return {
-    type: RECEIVE_CATEGORIES,
+    type: actionTypes.RECEIVE_CATEGORIES,
     categories
   };
 }

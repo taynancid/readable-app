@@ -1,25 +1,19 @@
-import {
-  RECEIVE_POSTS,
-  ADD_POST,
-  EDIT_POST,
-  DELETE_POST,
-  VOTE_POST
-} from "../actions/posts";
+import * as actionTypes from "../actions/actionTypes";
 
 export default function posts(state = {}, action) {
   const { id, title, body, post, voteScore } = action;
   switch (action.type) {
-    case RECEIVE_POSTS:
+    case actionTypes.RECEIVE_POSTS:
       return {
         ...state,
         ...action.posts
       };
-    case ADD_POST:
+    case actionTypes.ADD_POST:
       return {
         ...state,
         [post.id]: post
       };
-    case EDIT_POST:
+    case actionTypes.EDIT_POST:
       return {
         ...state,
         [id]: {
@@ -28,7 +22,7 @@ export default function posts(state = {}, action) {
           body
         }
       };
-    case DELETE_POST:
+    case actionTypes.DELETE_POST:
       return {
         ...state,
         [id]: {
@@ -36,7 +30,7 @@ export default function posts(state = {}, action) {
           deleted: true
         }
       };
-    case VOTE_POST:
+    case actionTypes.VOTE_POST:
       return {
         ...state,
         [id]: {

@@ -1,19 +1,13 @@
-import {
-  GET_COMMENTS,
-  VOTE_COMMENT,
-  DELETE_COMMENT,
-  ADD_COMMENT,
-  EDIT_COMMENT
-} from "../actions/comments";
+import * as actionTypes from "../actions/actionTypes";
 
 export default function comments(state = {}, action) {
   const { comments, id, voteScore, comment, author, body } = action;
   switch (action.type) {
-    case GET_COMMENTS:
+    case actionTypes.GET_COMMENTS:
       return {
         ...comments
       };
-    case VOTE_COMMENT:
+    case actionTypes.VOTE_COMMENT:
       return {
         ...state,
         [id]: {
@@ -21,7 +15,7 @@ export default function comments(state = {}, action) {
           voteScore
         }
       };
-    case DELETE_COMMENT:
+    case actionTypes.DELETE_COMMENT:
       return {
         ...state,
         [id]: {
@@ -29,12 +23,12 @@ export default function comments(state = {}, action) {
           deleted: true
         }
       };
-    case ADD_COMMENT:
+    case actionTypes.ADD_COMMENT:
       return {
         ...state,
         [comment.id]: comment
       };
-    case EDIT_COMMENT:
+    case actionTypes.EDIT_COMMENT:
       return {
         ...state,
         [id]: {

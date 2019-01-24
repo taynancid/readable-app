@@ -1,15 +1,11 @@
 import * as API from "../utils/api/comments";
 import { handleInitialData } from "./shared";
 import { formatComment } from "../utils/helpers";
-export const GET_COMMENTS = "GET_COMMENTS";
-export const VOTE_COMMENT = "VOTE_COMMENT";
-export const DELETE_COMMENT = "DELETE_COMMENT";
-export const ADD_COMMENT = "ADD_COMMENT";
-export const EDIT_COMMENT = "EDIT_COMMENT";
+import * as actionTypes from "../actions/actionTypes";
 
 function getComments(comments) {
   return {
-    type: GET_COMMENTS,
+    type: actionTypes.GET_COMMENTS,
     comments
   };
 }
@@ -24,7 +20,7 @@ export function handleGetComments(postId) {
 
 function voteComment(id, voteScore) {
   return {
-    type: VOTE_COMMENT,
+    type: actionTypes.VOTE_COMMENT,
     id,
     voteScore
   };
@@ -40,7 +36,7 @@ export function handleVoteComment(id, voteType) {
 
 function deleteComment(id) {
   return {
-    type: DELETE_COMMENT,
+    type: actionTypes.DELETE_COMMENT,
     id
   };
 }
@@ -55,7 +51,7 @@ export function handleDeleteComment(id) {
 
 function addComment(comment) {
   return {
-    type: ADD_COMMENT,
+    type: actionTypes.ADD_COMMENT,
     comment
   };
 }
@@ -71,7 +67,7 @@ export function handleAddComment(comment) {
 
 function editComment({ id, author, body }) {
   return {
-    type: EDIT_COMMENT,
+    type: actionTypes.EDIT_COMMENT,
     id,
     author,
     body
