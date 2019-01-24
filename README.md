@@ -7,8 +7,10 @@ This project was made with React, Redux (logic) and Bulma (ui) for the frontend.
 
 This is a simple forum web project with two major pieces: Posts and Comments
 
-##Components
-###Posts
+## Components
+
+### Posts
+
 Posts are the main objects in the page, they have:
 
 - Title
@@ -19,7 +21,8 @@ Posts are the main objects in the page, they have:
 - Number of comments
 - Number of votes (it can be negative)
 
-###Comments
+### Comments
+
 Comments are always related to one post and they have:
 
 - Author
@@ -27,8 +30,10 @@ Comments are always related to one post and they have:
 - Time that was made
 - Number of votes (it can be negative)
 
-##How to use
-###Main Page
+## How to use
+
+### Main Page
+
 On the main page the user can:
 
 - Select posts by category, using the upright dropdown
@@ -37,7 +42,8 @@ On the main page the user can:
 - UpVote or downvote the post
 - Sort posts by date or votecount
 
-###Post Page
+### Post Page
+
 On the post page the user can:
 
 - Edit and delete the post, same as the main page
@@ -47,20 +53,24 @@ On the post page the user can:
 ## Instructions to Run
 
 - Install and start the API server
+
   ```
    cd api-server
    npm install
    node server
   ```
+
 - In another terminal window, to start the front end
 
-```
-  cd frontend
-  npm install
-  npm start
-```
+  ```
+   cd frontend
+   npm install
+   npm start
+  ```
 
-##This project was made with -[React](https://reactjs.org/) -[Redux](https://redux.js.org/) -[Bulma](https://bulma.io/)
+## This project was made with
+
+-[React](https://reactjs.org/) -[Redux](https://redux.js.org/) -[Bulma](https://bulma.io/)
 
 ## API Server
 
